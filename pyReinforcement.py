@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# pyReinforcement - calulation of reinforced concrete bar's area
+# Copyright (C) 2010  P. Mavrogiorgos
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 # Βιβλιοθήκες
 from __future__ import division
 import wx
@@ -31,7 +47,7 @@ class MyFrame(wx.Frame):
     u""" Η κλάση αυτή δημιουργεί το κεντρικό παράθυρο της εφαρμογής"""
     def __init__(self):
         # Δημιουργία του κεντρικού Frame και του panel που συνδέεται μαζί του
-        self.frame = wx.Frame.__init__(self, None, -1, u"Εμβαδόν οπλισμών",style = STYLES)
+        self.frame = wx.Frame.__init__(self, None, -1, u"pyReinforcement",style = STYLES)
         self.panel = wx.Panel(self)
 
         self.BOLD_FONT = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False)
@@ -360,8 +376,9 @@ class MyFrame(wx.Frame):
         info.Description = wordwrap(
             u"Το πρόγραμμα αυτό υπολογίζει το εμβαδόν ράβδων και πλεγμάτων οπλισμού.\n\n"
             u"Για οποιαδήποτε σχόλια ή παρατηρήσεις παρακαλώ, "
-            u"επικοινωνήστε μαζί μου στην ακόλουθη ηλεκτρονική διεύθυνση\n",400, wx.ClientDC(self))
-        info.WebSite = (u"pmav99@gmail.com", u"email")
+            u"επικοινωνήστε μαζί μου στην ηλεκτρονική διεύθυνση\n"
+            u"pmav99@gmail.com",400, wx.ClientDC(self))
+        info.WebSite = (u"http://code.google.com/p/py-reinforcement/", u"url")
         info.Developers = [ u"Παναγιώτης Μαυρογιώργος, Πολιτικός Μηχανικός Δ.Π.Θ."]
         info.License = wordwrap(
                        u"Επιτρέπεται η ελεύθερη χρήση και διανομή του προγράμματος.\n\n"
