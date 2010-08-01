@@ -25,7 +25,7 @@ TYPOPOIHMENA = {u"T131" : "1.31", u"T188" : "1.88", u"T196" : "1.96", u"T377" : 
 
 # H μεταβλτήτη STYLES περιέχει τα styles του κεντρικού παράθυρου της εφαρμογής - μπαίνει στο self.frame.__init__
 # H wx.DEFAULT_FRAME_STYLE = wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.CLOSE_BOX | wx.RESIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.SYSTEM_CAPTION
-STYLES = wx.STAY_ON_TOP | wx.CAPTION | wx.CLOSE_BOX | wx.SYSTEM_MENU | wx.MINIMIZE_BOX
+STYLES = wx.STAY_ON_TOP | wx.CAPTION | wx.CLOSE_BOX | wx.SYSTEM_MENU | wx.MINIMIZE_BOX | wx.RESIZE_BORDER
 
 class MyFrame(wx.Frame):
     u""" Η κλάση αυτή δημιουργεί το κεντρικό παράθυρο της εφαρμογής"""
@@ -113,7 +113,7 @@ class MyFrame(wx.Frame):
             self.D_Lbl[i] = wx.TextCtrl(self.panel, -1, unicode(str((i-ROW)*2 + 8)), size = (30, -1))
             self.ana[i] = wx.StaticText(self.panel, -1, u"/", size = (5,-1))
             self.spinner[i] = FS.FloatSpin(self.panel, -1, min_val=1, max_val=100,
-                                increment=0.5, value=20,size = (55, -1))#, extrastyle=FS.FS_LEFT)
+                                increment=0.5, value=20,size = (55, -1), extrastyle=FS.FS_LEFT)
             self.spinner[i].SetFormat("%f")
             self.spinner[i].SetDigits(1)
             self.As[i] = 0
@@ -272,6 +272,7 @@ class MyFrame(wx.Frame):
                 self.sumCtrl[i].SetForegroundColour("red")
             else:
                 self.sumCtrl[i].SetForegroundColour("black")
+                
 
         ############################################################################################
         ######################################## Πλέγματα ##########################################
@@ -300,6 +301,9 @@ class MyFrame(wx.Frame):
         for i in range(ROW3, ROW3 + 1):
             self.sumCtrl[i].SetValue(unicode(sum))
 
+        # Ανανέωση του panel για να αλλάξουν τα χρώματα όταν γινονται αλλαγες στις σταθερες
+        self.Refresh()
+    
     def create_menu(self):
         """ Η συνάρτηση αυτή δημιουργεί το μενού"""
         # Create StatusBar
